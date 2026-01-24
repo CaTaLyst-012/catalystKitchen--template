@@ -18,6 +18,16 @@ function Footer() {
 
     emailjs.send(
       import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_SUBSCRIBER_TEMPLATE_ID,
+      {
+        user_email: email,
+        message: "Wlcome to catalyst kitche",
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    );
+
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
       import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       {
         user_email: email, // must match EmailJS template variable
