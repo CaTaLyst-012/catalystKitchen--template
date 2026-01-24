@@ -11,7 +11,7 @@
   width: 100%;
   background-color: aliceblue;
   overflow: hidden;
-  height:fit-content;
+  height:auto;
 }
 
 .newsletterSection {
