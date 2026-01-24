@@ -7,11 +7,38 @@ import tiktokIcon from '../../../assets/Images/tiktokicon-black.png';
 import whatsappIcon from '../../../assets/Images/whatsapp.png';
 import mailIcon from '../../../assets/Images/mail-icon.png';
 import './footer.css';
+import emailjs from '@emailjs/browser';
 
 function Footer() {
-    const [email, setEmail] = useState("");
+   const [email, setEmail] = useState("");
+  const [status, setStatus] = useState("");
 
-    const handleSubmit = (e) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        user_email: email, // must match EmailJS template variable
+        subscription_date: new Date().toLocaleString(),
+         source: "Website Newsletter Form",
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    )
+      .then(
+        () => {
+          setStatus("Subscribed successfully 🎉");
+          setEmail("");
+        },
+        (error) => {
+          setStatus("Something went wrong 😢");
+          console.error(error);
+        }
+      );
+  };
+
+   {/* const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!email) {
@@ -24,7 +51,7 @@ function Footer() {
 
     alert("Thanks for subscribing!");
     setEmail("");
-  };
+  };*/}
   return (
     <div className='footerSection'>
       <div className="newsletterSection">
@@ -38,7 +65,7 @@ function Footer() {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required/>
-                        <button className='subscribe-btn' type="submit">Subscribe</button>
+                        <button className='subscribe-btn' type="submit">Subscribe</button>{status && <p>{status}</p>}
                     </form>
                     <p>By subscribing you agree to receive emails from Catalyst's kitchen about promotions and updates.</p>
             </div>
