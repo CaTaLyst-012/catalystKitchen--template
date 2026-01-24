@@ -8,7 +8,7 @@ function ReviewPage() {
       {/* Background Video */}
       <video
         className="review-bg-video"
-        src="public/videos/friedriceVideo.mp4"
+        src="/videos/friedriceVideo.mp4"
         autoPlay
         muted
         loop
