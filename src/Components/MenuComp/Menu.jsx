@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./menu.css";  
-import jollof from '/public/images/jollofRice.jpg'
+
 
 function Menu({ cart, setCart }) {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -17,7 +17,7 @@ function Menu({ cart, setCart }) {
       name: "Jollof Rice",
       description: "Delicious jollof rice served with protein & sweet plantains.",
       basePrice: 2000,
-      image: {jollof},
+      image: "/Images/jollofRice.jpg",
       days: ["Monday", "Wednesday", "Friday"],
       proteins: ["Chicken", "Turkey"],
     },
@@ -25,7 +25,7 @@ function Menu({ cart, setCart }) {
       name: "Fried Rice",
       description: "Classic fried rice paired with protein & caramelized plantain.",
       basePrice: 2000,
-      image: "public/Images/FriedRice2.jpeg",
+      image: "/Images/FriedRice2.jpeg",
       days: ["Monday", "Wednesday"],
       proteins: ["Chicken", "Turkey"],
     },
@@ -33,7 +33,7 @@ function Menu({ cart, setCart }) {
       name: "Jambalaya",
       description: "Flavorful jambalaya with protein & golden plantain.",
       basePrice: 4000,
-      image: "public/Images/jambalaya.jpg",
+      image: "/Images/jambalaya.jpg",
       days: ["Wednesday"],
       proteins: ["Chicken", "Turkey"],
     },
@@ -41,7 +41,7 @@ function Menu({ cart, setCart }) {
       name: "Semo & Egusi Soup",
       description: "Soft semo served with rich egusi soup.",
       basePrice: 6000,
-      image: "public/Images/semoAndEgusi.jpg",
+      image: "/Images/semoAndEgusi.jpg",
       days: ["Friday"],
       proteins: [],
     },
@@ -49,7 +49,7 @@ function Menu({ cart, setCart }) {
       name: "Goat Meat Pepper Soup",
       description: "Hot and spicy goat meat pepper soup perfect for the soul.",
       basePrice: 7000,
-      image: "public/Images/goatmeatPeppersoup.jpg",
+      image: "/Images/goatmeatPeppersoup.jpg",
       days: ["Friday"],
       proteins: [],
     },
@@ -57,7 +57,7 @@ function Menu({ cart, setCart }) {
       name: "Stir-Fried Spaghetti",
       description: "Flavorful spaghetti stir-fried with veggies, protein & sweet plantain.",
       basePrice: 2500,
-      image: "public/Images/stirfriedSpaghetti.jpg",
+      image: "/Images/stirfriedSpaghetti.jpg",
       days: ["Monday"],
       proteins: ["Chicken", "Turkey"],
     },
