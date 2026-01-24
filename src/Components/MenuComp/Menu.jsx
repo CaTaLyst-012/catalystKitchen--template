@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./menu.css";  
+import jollof from '/public/images/jollofRice.jpg'
 
 function Menu({ cart, setCart }) {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -16,7 +17,7 @@ function Menu({ cart, setCart }) {
       name: "Jollof Rice",
       description: "Delicious jollof rice served with protein & sweet plantains.",
       basePrice: 2000,
-      image: "public/Images/jollofRice.jpg",
+      image: {jollof},
       days: ["Monday", "Wednesday", "Friday"],
       proteins: ["Chicken", "Turkey"],
     },
