@@ -1,0 +1,242 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  border-bottom: 1px solid #ccc;
+  z-index: 1000;
+}
+
+/* LEFT / RIGHT */
+.navbar-left,
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* keep right side at far right */
+.navbar-right {
+  margin-left: auto;
+}
+
+/* LOGO */
+.logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+}
+
+.catalystKitchen {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.catalystKitchen h3 {
+  font-size: 1.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* NAV LINKS */
+.nav-links-left {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+}
+
+.nav-item {
+  text-decoration: none;
+  color: black;
+  position: relative;
+}
+
+.nav-item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 2px;
+  background: rgb(225, 89, 51);
+  transition: width 0.3s ease;
+}
+
+.nav-item:hover::after {
+  width: 100%;
+}
+
+/* desktop nav container */
+.nav-links-desktop {
+  display: block;
+}
+
+/* CONTACT */
+.contact-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.contact-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contact-dropdown a {
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
+}
+
+/* CART */
+.cart-wrapper {
+  position: relative;
+}
+
+.cart-icon {
+  font-size: 22px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: rgb(225, 89, 51);
+  color: white;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* CART DROPDOWN */
+.cart-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 260px;
+  background: white;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.qty {
+  display: flex;
+  gap: 6px;
+}
+
+.qty button {
+  background: rgb(225, 89, 51);
+  color: white;
+  border: none;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* WHATSAPP */
+.whatsapp-btn {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  background: rgb(225, 89, 51);
+  color: white;
+  padding: 8px;
+  border-radius: 6px;
+  text-decoration: none;
+}
+
+/* HAMBURGER */
+.hamburger {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* mobile-only contact block */
+.mobile-contact {
+  display: none;
+}
+
+/* MOBILE NAV DROPDOWN */
+.nav-links-mobile {
+  display: none;
+  position: fixed;
+  top: 70px;              /* exactly navbar height */
+  left: 0;
+  width: 100%;
+  max-height: calc(100vh - 70px);  /* fill rest of viewport */
+  background: antiquewhite;
+  padding: 20px 0;
+  overflow-y: auto;       /* scroll if too tall */
+  -webkit-overflow-scrolling: touch; /* smooth scroll on mobile Safari */
+}
+
+.nav-links-mobile.active {
+  display: block;
+}
+
+
+.nav-links-mobile.active {
+  display: block;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  /* show hamburger */
+  .hamburger {
+    display: block;
+  }
+
+  /* hide desktop nav links on mobile */
+  .nav-links-desktop {
+    display: none;
+  }
+
+  /* hide desktop contact text on mobile
+     (contact will appear inside the dropdown instead) */
+  .contact-wrapper {
+    display: none;
+  }
+
+  .nav-links-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 8px;
+  }
+}

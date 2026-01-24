@@ -1,0 +1,31 @@
+.review-video-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-y: auto;
+}
+
+.review-bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+
+.review-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+.review-content {
+  position: relative;
+  padding: 80px 20px;
+}

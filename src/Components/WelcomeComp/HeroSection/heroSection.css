@@ -1,0 +1,194 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero-sectionContainer {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 90px; /*  pushes content below navbar */
+  background-image: url('../../../assets/Images/foodCollection6.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.hero-sectionContainer::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 1;
+}
+
+.overallHero-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  padding: 40px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* LEFT TEXT */
+.leftHero-text {
+  max-width: 500px;
+  h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+}
+
+.leftHero-text h1 {
+  color: white;
+  font-size: 2.8rem;
+  line-height: 1.2;
+  margin-bottom: 15px;
+}
+
+.heroParagrapgh {
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* COLORED WORDS */
+.flavourfully {
+  color: rgb(225, 89, 51);
+}
+
+.sumptuous {
+  color: yellow;
+}
+
+/* BUTTONS */
+.buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+  flex-wrap: wrap;
+}
+
+.viewMenu-button,
+.orderNow2-button {
+  min-width: 120px;
+  padding: 10px 14px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.viewMenu-button {
+  background-color: white;
+  color: black;
+}
+
+.viewMenu-button:hover {
+  background-color: black;
+  color: white;
+}
+
+.orderNow2-button {
+  background-color: rgb(224, 164, 10);
+  color: black;
+}
+
+.orderNow2-button:hover {
+  background-color: rgb(46, 42, 42);
+  color: rgb(225, 89, 51);
+}
+
+/* RIGHT IMAGE */
+.rightHero-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroImg {
+  width: 380px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+/* =========================
+   TABLET (≤ 1024px)
+========================= */
+@media (max-width: 1024px) {
+  .overallHero-container {
+    gap: 40px;
+  }
+
+  .leftHero-text h1 {
+    font-size: 2.4rem;
+  }
+
+  .heroImg {
+    width: 320px;
+  }
+}
+
+/* =========================
+   MOBILE (≤ 768px)
+========================= */
+@media (max-width: 768px) {
+  .overallHero-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+    padding: 20px;
+    .hero-sectionContainer {
+    padding-top: 110px; /* navbar stacks taller on mobile */
+  }
+  }
+
+  .leftHero-text {
+    max-width: 100%;
+  }
+
+  .leftHero-text h1 {
+    font-size: 2rem;
+  }
+
+  .heroParagrapgh {
+    font-size: 1rem;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .heroImg {
+    width: 280px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE (≤ 480px)
+========================= */
+@media (max-width: 480px) {
+  .leftHero-text h1 {
+    font-size: 1.7rem;
+  }
+
+  .heroParagrapgh {
+    font-size: 0.95rem;
+  }
+
+  .heroImg {
+    width: 240px;
+  }
+}

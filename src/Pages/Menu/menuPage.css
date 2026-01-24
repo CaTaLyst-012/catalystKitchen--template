@@ -1,0 +1,9 @@
+.menu-container {
+  min-height: 100vh;
+  padding-top: 100px; /* space for fixed navbar */
+  background-color: white;
+}
+.menu-control {
+  width: 100%;
+}
+

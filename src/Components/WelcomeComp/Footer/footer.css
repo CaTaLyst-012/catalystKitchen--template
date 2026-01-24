@@ -1,0 +1,184 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================
+   FOOTER BASE
+======================== */
+.footerSection {
+  width: 100%;
+  background-color: aliceblue;
+  overflow: hidden;
+}
+
+.newsletterSection {
+  background-image: url(../../../assets/Images/friedRice.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 80px 20px; /* responsive padding */
+  display: flex;
+  justify-content: center;
+}
+.logo2{
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+}
+
+.loopContainer {
+  width: 70%;
+  max-width: 800px;
+  background-color: rgba(27, 26, 26, 0.92);
+  border-radius: 20px;
+  padding: 40px 30px;
+  color: white;
+  text-align: center;
+  h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+}
+
+.loopContainer h1 {
+  margin-bottom: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.loopContainer p {
+  margin-bottom: 20px;
+}
+
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap; /* allows stacking on small screens */
+  margin-bottom: 20px;
+}
+
+.newsletter-form input {
+  width: 250px;
+  max-width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 10px;
+  border: none;
+}
+
+.subscribe-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(225, 89, 51);
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.subscribe-btn:hover {
+  background-color: rgb(157, 47, 17);
+}
+
+/* ========================
+   FOOTER BOTTOM ROW
+======================== */
+.footerContainer {
+  background-color: black;
+  color: #f0f0f0a6;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  flex-wrap: wrap; /* allows stacking on small screens */
+  gap: 20px;
+}
+
+.footerContainer p {
+  margin: 0;
+}
+
+.footerContainer .logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.footerContainer .logo:hover {
+  transform: scale(1.2);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icons img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f0f0f0a6;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* ========================
+   RESPONSIVE
+======================== */
+@media (max-width: 768px) {
+  .loopContainer {
+    width: 90%;
+    padding: 30px 20px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footerContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .footerContainer .logo {
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .social-icons img {
+    width: 25px;
+    height: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loopContainer h1 {
+    font-size: 1.5rem;
+  }
+
+  .loopContainer p {
+    font-size: 0.9rem;
+  }
+
+  .newsletter-form input {
+    width: 100%;
+  }
+
+  .subscribe-btn {
+    width: 100%;
+  }
+}
