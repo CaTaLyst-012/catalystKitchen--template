@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./menu.css";
+import "./menu.css";  
 
 function Menu({ cart, setCart }) {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
