@@ -3,16 +3,16 @@ import "./review.css";
 
 function Review() {
   const reviews = [
-    "public/images/review1.jpeg",
-    "public/images/review2.jpeg",
-    "public/images/review3.jpeg",
-    "public/images/review4.jpeg",
-    "public/images/review5.jpeg",
-    "public/images/review6.jpeg",
-    "public/images/review7.jpeg",
-    "public/images/review8.jpeg",
-    "public/images/review10.jpeg",
-    "public/images/review11.jpeg",
+    "/Images/review1.jpeg",
+    "/Images/review2.jpeg",
+    "/Images/review3.jpeg",
+    "/Images/review4.jpeg",
+    "/Images/review5.jpeg",
+    "/Images/review6.jpeg",
+    "/Images/review7.jpeg",
+    "/Images/review8.jpeg",
+    "/Images/review10.jpeg",
+    "/Images/review11.jpeg",
   ];
 
   return (

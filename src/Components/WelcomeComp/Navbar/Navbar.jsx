@@ -84,7 +84,9 @@ function Navbar({ cart = [], setCart }) {
       {/* LEFT */}
       <div className="navbar-left">
         <div className="catalystKitchen">
-          <img src={logo} alt="Catalyst Kitchen" className="logo" />
+          <Link to="/">
+            <img src={logo} alt="Catalyst Kitchen" className="logo" />
+          </Link>
           <h3>Catalyst's Kitchen</h3>
         </div>
 
