@@ -21,7 +21,7 @@ function Footer() {
       import.meta.env.VITE_EMAILJS_SUBSCRIBER_TEMPLATE_ID,
       {
         user_email: email,
-        message: "Hiii bestie! Thanks for joining the sweetness!😛 We're stoked you're here. Expect tasty updates on new meals, deals and behind-the-scenes goodies🍪 Keep an eye out for a special treat coming your way soon 🎁",
+        message: "Hiii bestie! Thanks for joining the sweetness!🤤 We're stoked you're here. Expect tasty updates on new meals, deals and behind-the-scenes goodies🍪 Keep an eye out for a special treat coming your way soon 🎁",
       },
       import.meta.env.VITE_EMAILJS_PUBLIC_KEY
     );

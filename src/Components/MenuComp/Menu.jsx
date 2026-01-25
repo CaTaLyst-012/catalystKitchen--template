@@ -24,7 +24,7 @@ function Menu({ cart, setCart }) {
     {
       name: "Fried Rice",
       description: "Classic fried rice paired with protein & caramelized plantain.",
-      basePrice: 2000,
+      basePrice: 2500,
       image: "/Images/FriedRice2.jpeg",
       days: ["Monday", "Wednesday"],
       proteins: ["Chicken", "Turkey"],
