@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./menu.css";  
-
+import "./menu.css";
 
 function Menu({ cart, setCart }) {
   const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -11,6 +10,8 @@ function Menu({ cart, setCart }) {
     Chicken: 3000,
     Turkey: 4000,
   };
+
+  const WATER_PRICE = 500; // Bottled water price
 
   const menuItems = [
     {
@@ -71,12 +72,14 @@ function Menu({ cart, setCart }) {
   const [customOpen, setCustomOpen] = useState(false);
   const [customText, setCustomText] = useState("");
   const [selectedProteins, setSelectedProteins] = useState({});
+  const [includeWater, setIncludeWater] = useState({}); // per-card water toggle
 
   const getProteinPrice = protein => PROTEIN_PRICES[protein] || 0;
 
-  const addToCart = (item, day, protein) => {
+  const addToCart = (item, day, protein, waterSelected, idx) => {
     const proteinExtra = protein ? getProteinPrice(protein) : 0;
-    const finalPrice = item.basePrice + proteinExtra;
+    const waterExtra = waterSelected ? WATER_PRICE : 0;
+    const finalPrice = item.basePrice + proteinExtra + waterExtra;
 
     const cartItem = {
       name: item.name,
@@ -84,6 +87,7 @@ function Menu({ cart, setCart }) {
       image: item.image,
       price: finalPrice,
       protein: protein || null,
+      water: waterSelected || false,
       day,
     };
 
@@ -92,18 +96,32 @@ function Menu({ cart, setCart }) {
         i =>
           i.name === cartItem.name &&
           i.day === cartItem.day &&
-          i.protein === cartItem.protein
+          i.protein === cartItem.protein &&
+          i.water === cartItem.water
       );
       if (found) {
         return prev.map(i =>
           i.name === cartItem.name &&
           i.day === cartItem.day &&
-          i.protein === cartItem.protein
+          i.protein === cartItem.protein &&
+          i.water === cartItem.water
             ? { ...i, quantity: i.quantity + 1 }
             : i
         );
       }
       return [...prev, { ...cartItem, quantity: 1 }];
+    });
+
+    // clear selections for this card after adding
+    setSelectedProteins(prev => {
+      const copy = { ...prev };
+      delete copy[idx];
+      return copy;
+    });
+    setIncludeWater(prev => {
+      const copy = { ...prev };
+      delete copy[idx];
+      return copy;
     });
   };
 
@@ -116,10 +134,12 @@ function Menu({ cart, setCart }) {
     setCustomOpen(false);
   };
 
-  // CLOSE CUSTOM MODAL WHEN DAY CHANGES
+  // CLOSE CUSTOM MODAL + CLEAR SELECTIONS WHEN DAY CHANGES
   useEffect(() => {
     setCustomOpen(false);
     setCustomText("");
+    setSelectedProteins({});
+    setIncludeWater({});
   }, [selectedDay]);
 
   return (
@@ -200,9 +220,12 @@ function Menu({ cart, setCart }) {
           .map((item, idx) => {
             const hasProteins = item.proteins && item.proteins.length > 0;
             const selectedProtein = selectedProteins[idx] || null;
+            const waterSelected = includeWater[idx] || false;
+
             const finalPrice =
               item.basePrice +
-              (selectedProtein ? getProteinPrice(selectedProtein) : 0);
+              (selectedProtein ? getProteinPrice(selectedProtein) : 0) +
+              (waterSelected ? WATER_PRICE : 0);
 
             const addDisabled =
               (hasProteins && !selectedProtein) ||
@@ -237,12 +260,29 @@ function Menu({ cart, setCart }) {
                     </div>
                   )}
 
+                  {/* OPTIONAL ADD-ON: Bottled water */}
+                  {hasProteins && (
+                    <label className="variant-option">
+                      <input
+                        type="checkbox"
+                        checked={includeWater[idx] || false}
+                        onChange={e =>
+                          setIncludeWater(prev => ({
+                            ...prev,
+                            [idx]: e.target.checked,
+                          }))
+                        }
+                      />
+                      Bottled water (+₦{WATER_PRICE.toLocaleString()})
+                    </label>
+                  )}
+
                   <div className="menu-footer">
                     <span>₦{finalPrice.toLocaleString()}</span>
                     <button
                       disabled={addDisabled}
                       onClick={() =>
-                        addToCart(item, selectedDay, selectedProtein)
+                        addToCart(item, selectedDay, selectedProtein, waterSelected, idx)
                       }
                     >
                       {hasProteins && !selectedProtein
