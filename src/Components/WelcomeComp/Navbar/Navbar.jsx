@@ -8,13 +8,13 @@ function Navbar({ cart = [], setCart }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
-  const cartRef = useRef(null); // ref to cart wrapper
+  const cartRef = useRef(null);
 
   const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const increaseQty = (name, day) => {
-    setCart(prev =>
-      prev.map(i =>
+    setCart((prev) =>
+      prev.map((i) =>
         i.name === name && i.day === day
           ? { ...i, quantity: i.quantity + 1 }
           : i
@@ -23,26 +23,23 @@ function Navbar({ cart = [], setCart }) {
   };
 
   const decreaseQty = (name, day) => {
-    setCart(prev =>
+    setCart((prev) =>
       prev
-        .map(i =>
+        .map((i) =>
           i.name === name && i.day === day
             ? { ...i, quantity: i.quantity - 1 }
             : i
         )
-        .filter(i => i.quantity > 0)
+        .filter((i) => i.quantity > 0)
     );
   };
 
-  const totalPrice = cart.reduce(
-    (sum, i) => sum + i.price * i.quantity,
-    0
-  );
+  const totalPrice = cart.reduce((sum, i) => sum + i.price * i.quantity, 0);
 
   const whatsappMessage = encodeURIComponent(
     `Hello Catalyst's Kitchen 👋\n\n` +
       cart
-        .map(i => `• ${i.name} x${i.quantity} (${i.day})`)
+        .map((i) => `• ${i.name} x${i.quantity} (${i.day})`)
         .join("\n") +
       `\n\nTotal: ₦${totalPrice.toLocaleString()}`
   );
@@ -59,10 +56,7 @@ function Navbar({ cart = [], setCart }) {
   // Close cart when clicking anywhere outside the cart area
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (
-        cartRef.current &&
-        !cartRef.current.contains(event.target)
-      ) {
+      if (cartRef.current && !cartRef.current.contains(event.target)) {
         setCartOpen(false);
       }
     };
@@ -73,11 +67,15 @@ function Navbar({ cart = [], setCart }) {
       document.removeEventListener("mousedown", handleClickOutside);
     }
 
-    // cleanup
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [cartOpen]);
+
+  // NEW: close mobile menu when clicking on the dark overlay
+  const handleOverlayClick = () => {
+    setMenuOpen(false);
+  };
 
   return (
     <nav className="navbar">
@@ -158,11 +156,15 @@ function Navbar({ cart = [], setCart }) {
                     {item.name} ({item.day})
                   </span>
                   <div className="qty">
-                    <button onClick={() => decreaseQty(item.name, item.day)}>
+                    <button
+                      onClick={() => decreaseQty(item.name, item.day)}
+                    >
                       -
                     </button>
                     <span>{item.quantity}</span>
-                    <button onClick={() => increaseQty(item.name, item.day)}>
+                    <button
+                      onClick={() => increaseQty(item.name, item.day)}
+                    >
                       +
                     </button>
                   </div>
@@ -183,56 +185,66 @@ function Navbar({ cart = [], setCart }) {
         </div>
       </div>
 
-      {/* MOBILE NAV DROPDOWN (full nav + contact) */}
-      <div className={`nav-links-mobile ${menuOpen ? "active" : ""}`}>
-        <ul className="nav-links-left">
-          <li>
-            <Link
-              className="nav-item"
-              to="/"
-              onClick={() => setMenuOpen(false)}
-            >
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item"
-              to="/menu"
-              onClick={() => setMenuOpen(false)}
-            >
-              Menu
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item"
-              to="/reservations"
-              onClick={() => setMenuOpen(false)}
-            >
-              Reservations
-            </Link>
-          </li>
-          <li>
-            <Link
-              className="nav-item"
-              to="/reviews"
-              onClick={() => setMenuOpen(false)}
-            >
-              Reviews
-            </Link>
-          </li>
+      {/* MOBILE NAV OVERLAY + RIGHT-SIDE PANEL */}
+      {menuOpen && (
+        <div className="mobile-menu-overlay" onClick={handleOverlayClick}>
+          <div
+            className="nav-links-mobile active"
+            onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside panel
+          >
+            <ul className="nav-links-left">
+              <li>
+                <Link
+                  className="nav-item"
+                  to="/"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="nav-item"
+                  to="/menu"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Menu
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="nav-item"
+                  to="/reservations"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Reservations
+                </Link>
+              </li>
+              <li>
+                <Link
+                  className="nav-item"
+                  to="/reviews"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Reviews
+                </Link>
+              </li>
 
-          <li className="mobile-contact">
-            <a href="tel:+2349020610057" className="nav-item">
-              📞 +234 902 061 0057
-            </a>
-            <a href="mailto:catalystkitchennn@gmail.com" className="nav-item">
-              ✉️ catalystkitchennn@gmail.com
-            </a>
-          </li>
-        </ul>
-      </div>
+              <li className="mobile-contact">
+                <a href="tel:+2349020610057" className="nav-item">
+                  📞 +234 902 061 0057
+                </a>
+                <a
+                  href="mailto:catalystkitchennn@gmail.com"
+                  className="nav-item"
+                >
+                  ✉️ catalystkitchennn@gmail.com
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

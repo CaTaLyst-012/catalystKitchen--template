@@ -187,28 +187,62 @@
   display: none;
 }
 
-/* MOBILE NAV DROPDOWN */
+/* ===========================
+   NEW MOBILE OVERLAY + PANEL
+   =========================== */
+
+/* DARK OVERLAY BEHIND MOBILE MENU */
+.mobile-menu-overlay {
+  position: fixed;
+  inset: 0; /* top:0; right:0; bottom:0; left:0 */
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 999; /* just under navbar (1000) */
+}
+
+/* RIGHT-SIDE SLIDE-OUT PANEL */
 .nav-links-mobile {
   display: none;
   position: fixed;
-  top: 70px;              /* exactly navbar height */
+  top: 70px;
+  right: 0;
+  width: 55%;           /* was 70% */
+  max-width: 240px;     /* was 280px */
+  max-height: calc(100vh - 70px);
+  background: antiquewhite;
+  padding: 20px 16px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+}
+
+
+.nav-links-mobile.active {
+  display: block;
+}
+
+/* ===========================
+   OLD FULL-WIDTH MOBILE MENU
+   (kept here, but disabled)
+   =========================== */
+/*
+.nav-links-mobile {
+  display: none;
+  position: fixed;
+  top: 70px;
   left: 0;
   width: 100%;
-  max-height: calc(100vh - 70px);  /* fill rest of viewport */
+  max-height: calc(100vh - 70px);
   background: antiquewhite;
   padding: 20px 0;
-  overflow-y: auto;       /* scroll if too tall */
-  -webkit-overflow-scrolling: touch; /* smooth scroll on mobile Safari */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav-links-mobile.active {
   display: block;
 }
-
-
-.nav-links-mobile.active {
-  display: block;
-}
+*/
 
 /* MOBILE */
 @media (max-width: 768px) {
@@ -222,21 +256,24 @@
     display: none;
   }
 
-  /* hide desktop contact text on mobile
-     (contact will appear inside the dropdown instead) */
+  /* hide desktop contact (it appears inside mobile menu) */
   .contact-wrapper {
     display: none;
   }
 
   .nav-links-left {
     flex-direction: column;
-    align-items: center;
+    align-items: center;   /* was flex-start */
+    text-align: center;    /* center the text */
+    gap: 16px;
   }
 
   .mobile-contact {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin-top: 8px;
+    margin-top: 12px;
+    align-items: center;   /* center the contact links too */
   }
 }
+
