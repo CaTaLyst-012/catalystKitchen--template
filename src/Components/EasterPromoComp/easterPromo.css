@@ -1,0 +1,286 @@
+/* Container */
+.easter-promo-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 3rem; /* was 2rem top → now 4.5rem for space under navbar */
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.easter-promo-header {
+  display: flex;
+  gap: 2.5rem;                /* a bit more gap between text and image */
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.easter-promo-text {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+.easter-promo-image-box {
+  flex: 1 1 360px;            /* let the image column take more space on desktop */
+  display: flex;
+  justify-content: center;
+}
+
+.easter-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.easter-subtitle {
+  font-size: 0.95rem;
+  color: #555;
+  margin-bottom: 1.25rem;
+}
+
+/* Countdown */
+.easter-countdown-box {
+  background: #fff7e6;
+  border: 1px solid #ffd48a;
+  border-radius: 10px;
+  padding: 0.9rem 1rem;
+}
+
+.easter-countdown-label {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.easter-countdown-values {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.easter-countdown-item {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  min-width: 60px;
+  text-align: center;
+  border: 1px solid #ffe0a8;
+}
+
+.easter-countdown-item span {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.easter-countdown-item small {
+  font-size: 0.7rem;
+  color: #777;
+}
+
+.easter-ended-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #b3261e;
+}
+
+/* Image */
+.easter-promo-image-box {
+  flex: 0 1 320px;
+  display: flex;
+  justify-content: center;
+}
+
+.easter-promo-image {
+  width: 100%;
+  max-width: 360px;
+  max-height: 360px;          /* prevent very tall image */
+  aspect-ratio: 1 / 1;        /* keep it roughly square */
+  border-radius: 14px;
+  object-fit: cover;          /* crop to fill square nicely */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+/* Menu card */
+.easter-menu-list {
+  display: flex;
+  justify-content: center;
+}
+
+.easter-menu-card {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 14px;
+  border: 1px solid #f0f0f0;
+  background: #ffffff;
+  padding: 1.5rem 1.4rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+.easter-menu-name {
+  font-size: 1.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.easter-menu-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0.8rem;
+}
+
+.easter-menu-price {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+
+/* Add-on + footer */
+.easter-addon-row {
+  margin-bottom: 0.9rem;
+}
+
+.easter-addon-label {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.easter-addon-label input {
+  accent-color: #ff9900;
+}
+
+.easter-menu-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.easter-final-price {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.easter-order-btn {
+  background: #ff9900;
+  color: #ffffff;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+.easter-order-btn:hover:not(:disabled) {
+  background: #e68800;
+  transform: translateY(-1px);
+}
+
+.easter-order-btn:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Rules box */
+.easter-rules-box {
+  border-radius: 12px;
+  border: 1px dashed #ffd48a;
+  background: #fffaf0;
+  padding: 1.2rem 1rem;
+}
+
+.easter-rules-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.easter-rules-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+  font-size: 0.88rem;
+  color: #555;
+}
+
+.easter-rules-list li + li {
+  margin-top: 0.25rem;
+}
+
+/* Message */
+.easter-message {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #155724;
+  background: #d4edda;
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .easter-promo-wrapper {
+    padding: 6rem 1rem 2.5rem;  /* still gives navbar space but less bottom */
+    gap: 1.5rem;                  /* reduce global vertical gap */
+  }
+
+  .easter-promo-header {
+    flex-direction: column;
+    gap: 1.2rem;                  /* less space between text and image */
+  }
+
+  .easter-promo-image-box {
+    order: -1;
+  }
+
+  .easter-title {
+    font-size: 1.7rem;
+  }
+
+  .easter-menu-card {
+    padding: 1.2rem 1.1rem;
+  }
+  .easter-menu-list {
+    margin-top: 0.5rem;           /* pull menu closer to countdown */
+  }
+
+}
+@media (max-width: 768px) {
+  .easter-promo-wrapper {
+    row-gap: 0;            /* override vertical gap if your browser supports it */
+  }
+
+  /* or, simpler: explicitly remove margin before menu */
+  .easter-promo-header {
+    margin-bottom: -3.5rem;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .easter-countdown-values {
+    gap: 0.4rem;
+  }
+
+  .easter-countdown-item {
+    min-width: 55px;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .easter-menu-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .easter-order-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .easter-menu-card {
+    padding: 1.1rem 1rem;
+  }
+}
