@@ -12,7 +12,7 @@ const getPromoEndDate = () => {
 
 const promoEndDate = getPromoEndDate();
 
-const EASTER_BASE_PRICE = 4000;
+const EASTER_BASE_PRICE = 5000;
 const WATER_PRICE = 500;
 
 function EasterPromo({ cart, setCart }) {
