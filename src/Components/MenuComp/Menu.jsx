@@ -50,7 +50,7 @@ function Menu({ cart, setCart }) {
     {
       name: "Goat Meat Pepper Soup",
       description: "Hot and spicy goat meat pepper soup perfect for the soul.",
-      basePrice: 7000,
+      basePrice: 8000,
       image: "/Images/goatmeatPeppersoup.jpg",
       days: ["Friday"],
       proteins: [],
