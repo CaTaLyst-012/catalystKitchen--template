@@ -8,7 +8,8 @@ function Menu({ cart, setCart }) {
 
   const PROTEIN_PRICES = {
     Chicken: 3000,
-    Turkey: 4000,
+    SoloTurkey: 3500,
+    LargeTurkey: 4500,
   };
 
   const WATER_PRICE = 500; // Bottled water price
@@ -20,7 +21,7 @@ function Menu({ cart, setCart }) {
       basePrice: 2000,
       image: "/Images/jollofRice.jpg",
       days: ["Monday", "Wednesday", "Friday"],
-      proteins: ["Chicken", "Turkey"],
+      proteins: ["Chicken","SoloTurkey","LargeTurkey"],
     },
     {
       name: "Fried Rice",
@@ -28,7 +29,7 @@ function Menu({ cart, setCart }) {
       basePrice: 2500,
       image: "/Images/FriedRice2.jpeg",
       days: ["Monday", "Wednesday"],
-      proteins: ["Chicken", "Turkey"],
+      proteins: ["Chicken", "SoloTurkey","LargeTurkey"],
     },
     {
       name: "Jambalaya",
@@ -36,7 +37,7 @@ function Menu({ cart, setCart }) {
       basePrice: 4000,
       image: "/Images/jambalaya.jpg",
       days: ["Wednesday"],
-      proteins: ["Chicken", "Turkey"],
+      proteins: ["Chicken", "SoloTurkey","LargeTurkey"],
     },
     {
       name: "Semo & Egusi Soup",
@@ -60,7 +61,7 @@ function Menu({ cart, setCart }) {
       basePrice: 2500,
       image: "/Images/stirfriedSpaghetti.jpg",
       days: ["Monday"],
-      proteins: ["Chicken", "Turkey"],
+      proteins: ["Chicken", "SoloTurkey","LargeTurkey"],
     },
   ];
 
