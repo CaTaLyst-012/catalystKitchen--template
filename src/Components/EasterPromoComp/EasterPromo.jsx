@@ -7,12 +7,12 @@ const getPromoEndDate = () => {
   const now = new Date();
   const year = now.getFullYear();
   // Last day of April at 23:59:59 (month index 4 = May, day 0 = last day of April)
-  return new Date(year, 4, 0, 23, 59, 59);
+  return new Date(year, 7, 0, 23, 59, 59);
 };
 
 const promoEndDate = getPromoEndDate();
 
-const EASTER_BASE_PRICE = 5000;
+const EASTER_BASE_PRICE = 5500;
 const WATER_PRICE = 500;
 
 function EasterPromo({ cart, setCart }) {
@@ -60,15 +60,15 @@ function EasterPromo({ cart, setCart }) {
 
   const handleAddToCart = () => {
     if (!isPromoActive) {
-      setMessage("Easter promo has ended. Please order from the regular menu.");
+      setMessage("Birthday Bonazaaa has ended. Please order from the regular menu.");
       return;
     }
 
     const finalPrice = EASTER_BASE_PRICE + (includeWater ? WATER_PRICE : 0);
 
     const cartItem = {
-      name: "Easter Jollof Special",
-      description: "Smoky jollof rice with turkey and ripe plantains.",
+      name: "Birthday Jollof Special",
+      description: "Smoky jollof rice with turkey and ripe plantains",
       image: "/Images/easterMenuImg.jpg",
       price: finalPrice,
       protein: null, // no protein choice here
@@ -100,11 +100,11 @@ function EasterPromo({ cart, setCart }) {
     });
 
     setMessage(
-      `Added to cart: Easter Jollof Special${
+      `Added to cart: Birthday Jollof Special${
         includeWater ? " + bottled water" : ""
       } (Total: ₦${finalPrice.toLocaleString()}). ` +
         "Orders can be placed all through the week till Thursday 12 pm. " +
-        "Orders from ₦8,000 and above come with our brand packaging, while lower amounts use regular packaging."
+        "Orders from 2 plates and above comes with our brand packaging, while lower amounts comes with our regular packaging."
     );
 
     // Reset local UI but stay on /easter
@@ -116,9 +116,9 @@ function EasterPromo({ cart, setCart }) {
     <section className="easter-promo-wrapper" key={resetKey}>
       <div className="easter-promo-header">
         <div className="easter-promo-text">
-          <h1 className="easter-title">Easter Promo Menu</h1>
+          <h1 className="easter-title">Birthday Bonazaaa Menu</h1>
           <p className="easter-subtitle">
-            Limited-time Easter Jollof Special available until end of April.
+            Limited-time Birthday Jollof Special available until end of July.
           </p>
 
           <div className="easter-countdown-box">
@@ -146,7 +146,7 @@ function EasterPromo({ cart, setCart }) {
               </>
             ) : (
               <p className="easter-ended-text">
-                Easter promo has ended. See our regular menu for more options.
+                Birthday Bonazaaa has ended. See our regular menu for more options.
               </p>
             )}
           </div>
@@ -155,7 +155,7 @@ function EasterPromo({ cart, setCart }) {
         <div className="easter-promo-image-box">
           <img
             src={easterMenuImg}
-            alt="Easter Jollof Special - jollof rice, turkey and plantains"
+            alt="Birthday Jollof Special - jollof rice, turkey and plantains"
             className="easter-promo-image"
           />
         </div>
@@ -163,7 +163,7 @@ function EasterPromo({ cart, setCart }) {
 
       <div className="easter-menu-list">
         <div className="easter-menu-card">
-          <h3 className="easter-menu-name">Easter Jollof Special</h3>
+          <h3 className="easter-menu-name">Birthday Jollof Special</h3>
           <p className="easter-menu-desc">
             Smoky jollof rice with turkey and ripe plantains.
           </p>
@@ -206,8 +206,8 @@ function EasterPromo({ cart, setCart }) {
         <h2 className="easter-rules-title">Promo ordering details</h2>
         <ul className="easter-rules-list">
           <li>Orders can be placed all through the week till Thursday 12:00 pm.</li>
-          <li>Orders from ₦8,000 and above come with our special brand packaging.</li>
-          <li>Orders below ₦8,000 will be served in our regular packaging.</li>
+          <li>Orders from 2 plates and above comes with our special brand packaging.</li>
+          <li>Orders below 2 plates will be served in our regular packaging.</li>
         </ul>
       </div>
 
