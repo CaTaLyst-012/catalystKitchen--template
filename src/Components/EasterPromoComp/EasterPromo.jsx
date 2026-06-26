@@ -28,7 +28,7 @@ function EasterPromo({ cart, setCart }) {
   const [resetKey, setResetKey] = useState(0); // used to remount UI
 
   // For consistency, set a logical "day" label for the cart
-  const promoDayLabel = "Easter Promo";
+  const promoDayLabel = "Birthday Bonazaaa";
 
   useEffect(() => {
     const updateTimer = () => {
