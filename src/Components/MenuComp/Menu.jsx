@@ -18,7 +18,7 @@ function Menu({ cart, setCart }) {
     {
       name: "Jollof Rice",
       description: "Full plate of delicious jollof rice served with protein & sweet plantains.",
-      basePrice: 4000,
+      basePrice: 3000,
       image: "/Images/jollofRice.jpg",
       days: ["Monday", "Wednesday", "Friday"],
       proteins: ["Chicken","SoloTurkey","LargeTurkey"],
@@ -26,7 +26,7 @@ function Menu({ cart, setCart }) {
     {
       name: "Fried Rice",
       description: "Full plate of classic fried rice paired with protein & caramelized plantain.",
-      basePrice: 4000,
+      basePrice: 3000,
       image: "/Images/FriedRice2.jpeg",
       days: ["Monday", "Wednesday"],
       proteins: ["Chicken", "SoloTurkey","LargeTurkey"],
@@ -34,7 +34,7 @@ function Menu({ cart, setCart }) {
     {
       name: "Jambalaya",
       description: "Full plate of flavorful jambalaya with protein & golden plantain.",
-      basePrice: 6000,
+      basePrice: 5000,
       image: "/Images/jambalaya.jpg",
       days: ["Wednesday"],
       proteins: ["Chicken", "SoloTurkey","LargeTurkey"],
@@ -58,7 +58,7 @@ function Menu({ cart, setCart }) {
     {
       name: "Stir-Fried Spaghetti",
       description: "Full plate of flavorful spaghetti stir-fried with veggies, protein & sweet plantain.",
-      basePrice: 4000,
+      basePrice: 3000,
       image: "/Images/stirfriedSpaghetti.jpg",
       days: ["Monday"],
       proteins: ["Chicken", "SoloTurkey","LargeTurkey"],
