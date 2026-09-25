@@ -1,286 +1,481 @@
-/* Container */
-.easter-promo-wrapper {
-  max-width: 1100px;
+/* ===========================================================
+   Catalyst's Kitchen @1 Anniversary Menu - styles
+   Poppy-red celebratory palette, warm neutrals, gold accents.
+   =========================================================== */
+
+.ap-wrapper {
+  --ap-red: #e0212b;
+  --ap-red-dark: #ad1017;
+  --ap-gold: #d9a441;
+  --ap-cream: #fff8ef;
+  --ap-text: #241414;
+  --ap-muted: #6b5b5b;
+  --ap-radius: 14px;
+
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 6rem 1.5rem 3rem; /* was 2rem top → now 4.5rem for space under navbar */
+  padding: 24px 16px 64px;
+  color: var(--ap-text);
+  background: var(--ap-cream);
+  overflow-x: hidden;
+}
+
+/* ---------- Hero ---------- */
+.ap-hero {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 24px;
+  align-items: center;
+  padding: 28px 0 12px;
+}
+
+.ap-hero-kicker {
+  margin: 0 0 4px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ap-red-dark);
+  font-size: 0.85rem;
+  animation: ap-fade-up 0.6s ease both;
+}
+
+.ap-hero-title {
+  margin: 0 0 8px;
+  font-size: clamp(1.9rem, 6vw, 3rem);
+  line-height: 1.1;
+  animation: ap-fade-up 0.6s ease both 0.05s;
+}
+
+.ap-hero-at1 {
+  color: var(--ap-red);
+  font-weight: 800;
+  position: relative;
+  padding: 0 4px;
+}
+
+.ap-hero-dates {
+  margin: 0 0 12px;
+  font-weight: 600;
+  color: var(--ap-red-dark);
+  animation: ap-fade-up 0.6s ease both 0.1s;
+}
+
+.ap-hero-message {
+  margin: 0 0 18px;
+  color: var(--ap-muted);
+  max-width: 46ch;
+  animation: ap-fade-up 0.6s ease both 0.15s;
+}
+
+.ap-order-hint {
+  margin-top: 14px;
+  font-weight: 600;
+  color: var(--ap-red-dark);
+}
+
+.ap-hero-image-box {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  animation: ap-reveal 0.7s ease both 0.1s;
+}
+
+.ap-hero-image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: var(--ap-radius);
+  display: block;
+  box-shadow: 0 12px 30px rgba(173, 16, 23, 0.18);
+}
+
+.ap-hero-badge {
+  position: absolute;
+  top: -14px;
+  right: -10px;
+  background: var(--ap-gold);
+  color: #241414;
+  font-weight: 800;
+  padding: 8px 14px;
+  border-radius: 999px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
+  animation: ap-pulse 2.6s ease-in-out infinite;
+}
+
+/* ---------- Countdown ---------- */
+.ap-countdown-box {
+  background: #fff;
+  border: 1px solid rgba(224, 33, 43, 0.15);
+  border-radius: var(--ap-radius);
+  padding: 14px 16px;
+  margin: 6px 0 4px;
+}
+
+.ap-countdown-label {
+  margin: 0 0 8px;
+  font-weight: 600;
+  color: var(--ap-red-dark);
+}
+
+.ap-countdown-values {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ap-countdown-item {
+  background: var(--ap-cream);
+  border-radius: 10px;
+  padding: 8px 12px;
+  min-width: 58px;
+  text-align: center;
+}
+
+.ap-countdown-item span {
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ap-red);
+  transition: transform 0.15s ease;
+}
+
+.ap-countdown-item small {
+  font-size: 0.7rem;
+  color: var(--ap-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ap-ended-text {
+  font-weight: 600;
+  color: var(--ap-red-dark);
+  margin: 0;
+}
+
+/* ---------- Price tag ---------- */
+.ap-price-tag {
+  display: inline-flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.ap-price-current {
+  font-weight: 800;
+  color: var(--ap-red);
+  font-size: 1.05rem;
+}
+
+.ap-price-previous {
+  color: var(--ap-muted);
+  font-size: 0.85rem;
+}
+
+.ap-price-label {
+  font-size: 0.7rem;
+  color: var(--ap-muted);
+}
+
+/* ---------- Menu grid ---------- */
+.ap-menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.ap-menu-card {
+  background: #fff;
+  border-radius: var(--ap-radius);
+  overflow: hidden;
+  box-shadow: 0 8px 22px rgba(36, 20, 20, 0.08);
+  border: 1px solid rgba(224, 33, 43, 0.08);
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  animation: ap-fade-up 0.5s ease both;
+  animation-delay: calc(var(--ap-stagger, 0) * 0.08s);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.easter-promo-header {
-  display: flex;
-  gap: 2.5rem;                /* a bit more gap between text and image */
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.ap-menu-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(36, 20, 20, 0.14);
 }
 
-.easter-promo-text {
-  flex: 1 1 320px;
-  min-width: 280px;
-}
-
-.easter-promo-image-box {
-  flex: 1 1 360px;            /* let the image column take more space on desktop */
-  display: flex;
-  justify-content: center;
-}
-
-.easter-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-}
-
-.easter-subtitle {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1.25rem;
-}
-
-/* Countdown */
-.easter-countdown-box {
-  background: #fff7e6;
-  border: 1px solid #ffd48a;
-  border-radius: 10px;
-  padding: 0.9rem 1rem;
-}
-
-.easter-countdown-label {
-  font-size: 0.9rem;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.easter-countdown-values {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-}
-
-.easter-countdown-item {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 0.4rem 0.8rem;
-  min-width: 60px;
-  text-align: center;
-  border: 1px solid #ffe0a8;
-}
-
-.easter-countdown-item span {
+.ap-menu-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
   display: block;
-  font-weight: 700;
+}
+
+.ap-menu-card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.ap-menu-card-name {
+  margin: 0;
   font-size: 1.1rem;
 }
 
-.easter-countdown-item small {
-  font-size: 0.7rem;
-  color: #777;
+.ap-menu-card-desc {
+  margin: 0;
+  color: var(--ap-muted);
+  font-size: 0.92rem;
 }
 
-.easter-ended-text {
-  font-size: 0.9rem;
+.ap-turkey-fieldset {
+  border: none;
+  padding: 0;
+  margin: 4px 0 0;
+}
+
+.ap-turkey-legend {
+  font-size: 0.8rem;
   font-weight: 600;
-  color: #b3261e;
+  color: var(--ap-red-dark);
+  padding: 0 0 6px;
 }
 
-/* Image */
-.easter-promo-image-box {
-  flex: 0 1 320px;
+.ap-turkey-options {
   display: flex;
-  justify-content: center;
-}
-
-.easter-promo-image {
-  width: 100%;
-  max-width: 360px;
-  max-height: 360px;          /* prevent very tall image */
-  aspect-ratio: 1 / 1;        /* keep it roughly square */
-  border-radius: 14px;
-  object-fit: cover;          /* crop to fill square nicely */
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
-}
-
-/* Menu card */
-.easter-menu-list {
-  display: flex;
-  justify-content: center;
-}
-
-.easter-menu-card {
-  width: 100%;
-  max-width: 480px;
-  border-radius: 14px;
-  border: 1px solid #f0f0f0;
-  background: #ffffff;
-  padding: 1.5rem 1.4rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-}
-
-.easter-menu-name {
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-}
-
-.easter-menu-desc {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0.8rem;
-}
-
-.easter-menu-price {
-  font-weight: 700;
-  margin-bottom: 0.8rem;
-}
-
-/* Add-on + footer */
-.easter-addon-row {
-  margin-bottom: 0.9rem;
-}
-
-.easter-addon-label {
-  display: flex;
-  align-items: center;
-  gap: 0.45rem;
-  font-size: 0.9rem;
-  cursor: pointer;
-}
-
-.easter-addon-label input {
-  accent-color: #ff9900;
-}
-
-.easter-menu-footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-.easter-final-price {
-  font-weight: 600;
+.ap-turkey-option {
+  border: 1.5px solid rgba(224, 33, 43, 0.2);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  flex: 1 1 140px;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.ap-turkey-option:has(input:checked) {
+  border-color: var(--ap-red);
+  background: rgba(224, 33, 43, 0.06);
+}
+
+.ap-turkey-option:focus-within {
+  outline: 2px solid var(--ap-red-dark);
+  outline-offset: 2px;
+}
+
+.ap-turkey-option input {
+  accent-color: var(--ap-red);
+  width: 16px;
+  height: 16px;
+}
+
+.ap-turkey-option-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ap-turkey-option-label {
+  font-size: 0.82rem;
+  color: var(--ap-text);
+}
+
+.ap-menu-card-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.ap-total {
   font-size: 0.95rem;
 }
 
-.easter-order-btn {
-  background: #ff9900;
-  color: #ffffff;
+.ap-add-btn {
+  background: var(--ap-red);
+  color: #fff;
   border: none;
-  padding: 0.55rem 1.2rem;
   border-radius: 999px;
-  font-size: 0.9rem;
-  font-weight: 600;
+  padding: 10px 18px;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.1s ease;
+  transition: transform 0.1s ease, background 0.15s ease;
 }
 
-.easter-order-btn:hover:not(:disabled) {
-  background: #e68800;
-  transform: translateY(-1px);
+.ap-add-btn:hover:not(:disabled) {
+  background: var(--ap-red-dark);
 }
 
-.easter-order-btn:disabled {
-  background: #cccccc;
+.ap-add-btn:active:not(:disabled) {
+  transform: scale(0.96);
+}
+
+.ap-add-btn:focus-visible {
+  outline: 3px solid var(--ap-gold);
+  outline-offset: 2px;
+}
+
+.ap-add-btn:disabled {
+  background: #cbb;
   cursor: not-allowed;
+  opacity: 0.7;
 }
 
-/* Rules box */
-.easter-rules-box {
-  border-radius: 12px;
-  border: 1px dashed #ffd48a;
-  background: #fffaf0;
-  padding: 1.2rem 1rem;
-}
-
-.easter-rules-title {
-  font-size: 1rem;
+.ap-message {
+  margin: 20px 0 0;
+  background: #fff;
+  border-left: 4px solid var(--ap-red);
+  border-radius: 10px;
+  padding: 12px 14px;
   font-weight: 600;
-  margin-bottom: 0.6rem;
+  animation: ap-fade-up 0.35s ease both;
 }
 
-.easter-rules-list {
-  list-style: disc;
-  padding-left: 1.2rem;
-  font-size: 0.88rem;
-  color: #555;
+/* ---------- Rewards ---------- */
+.ap-rewards {
+  margin-top: 48px;
 }
 
-.easter-rules-list li + li {
-  margin-top: 0.25rem;
+.ap-rewards-title {
+  font-size: 1.5rem;
+  margin: 0 0 18px;
+  color: var(--ap-red-dark);
+  position: relative;
+  padding-bottom: 8px;
 }
 
-/* Message */
-.easter-message {
-  margin-top: 0.8rem;
+.ap-rewards-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--ap-gold);
+  border-radius: 4px;
+}
+
+.ap-rewards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.ap-reward-card {
+  background: #fff;
+  border: 1px solid rgba(224, 33, 43, 0.1);
+  border-radius: 12px;
+  padding: 14px 16px;
+  animation: ap-fade-up 0.5s ease both;
+  animation-delay: calc(var(--ap-stagger, 0) * 0.06s);
+}
+
+.ap-reward-title {
+  margin: 0 0 6px;
+  font-size: 1rem;
+  color: var(--ap-red);
+}
+
+.ap-reward-text {
+  margin: 0;
+  color: var(--ap-muted);
   font-size: 0.9rem;
-  color: #155724;
-  background: #d4edda;
-  border-radius: 8px;
-  padding: 0.6rem 0.8rem;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .easter-promo-wrapper {
-    padding: 6rem 1rem 2.5rem;  /* still gives navbar space but less bottom */
-    gap: 1.5rem;                  /* reduce global vertical gap */
-  }
-
-  .easter-promo-header {
-    flex-direction: column;
-    gap: 1.2rem;                  /* less space between text and image */
-  }
-
-  .easter-promo-image-box {
-    order: -1;
-  }
-
-  .easter-title {
-    font-size: 1.7rem;
-  }
-
-  .easter-menu-card {
-    padding: 1.2rem 1.1rem;
-  }
-  .easter-menu-list {
-    margin-top: 0.5rem;           /* pull menu closer to countdown */
-  }
-
+/* ---------- Delivery announcement ---------- */
+.ap-delivery {
+  margin-top: 40px;
+  background: #fff;
+  border-radius: var(--ap-radius);
+  border: 1px dashed rgba(224, 33, 43, 0.3);
+  padding: 18px 16px;
 }
-@media (max-width: 768px) {
-  .easter-promo-wrapper {
-    row-gap: 0;            /* override vertical gap if your browser supports it */
-  }
 
-  /* or, simpler: explicitly remove margin before menu */
-  .easter-promo-header {
-    margin-bottom: -3.5rem;
+.ap-delivery-heading {
+  margin: 0 0 8px;
+  font-size: 1.2rem;
+  color: var(--ap-red-dark);
+}
+
+.ap-delivery-text {
+  margin: 6px 0;
+  color: var(--ap-text);
+}
+
+/* ---------- Animations ---------- */
+@keyframes ap-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes ap-reveal {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
-@media (max-width: 480px) {
-  .easter-countdown-values {
-    gap: 0.4rem;
+@keyframes ap-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ap-wrapper * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 720px) {
+  .ap-hero {
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
   }
 
-  .easter-countdown-item {
-    min-width: 55px;
-    padding: 0.3rem 0.5rem;
+  .ap-hero-text {
+    flex: 1;
   }
 
-  .easter-menu-footer {
-    flex-direction: column;
-    align-items: flex-start;
+  .ap-menu-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .easter-order-btn {
-    width: 100%;
-    text-align: center;
+  .ap-rewards-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .easter-menu-card {
-    padding: 1.1rem 1rem;
+}
+
+@media (min-width: 1024px) {
+  .ap-menu-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .ap-rewards-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -57,7 +57,7 @@
 
 .heroParagrapgh {
   color: white;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   line-height: 1.6;
 }
 
@@ -169,6 +169,18 @@
     text-align: center;
   }
 }
+@media (max-width: 480px) {
+  .hero-easter-btn {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.7rem 0.8rem;
+    font-size: 0.9rem;
+    line-height: 1.0;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
 /* =========================
    TABLET (≤ 1024px)
 ========================= */

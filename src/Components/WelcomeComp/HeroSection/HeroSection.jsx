@@ -38,7 +38,7 @@ function HeroSection() {
             className="hero-easter-btn bounce-cta"
             onClick={handleEasterClick}
           >
-            Birthday Bonazaaa is LIVE 🎉🎂 – Tap to order
+            Catalyst's Kitchen @ 1 is live now‼️🎉-Tap to order
           </button>
         </div>
 
